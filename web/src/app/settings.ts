@@ -201,6 +201,8 @@ export const KEYS: readonly KeyDef[] = [
   { key: 'button_hold', env: 'NFSU2_BUTTON_HOLD', kind: 'enum', vals: 'ddown|dup|dleft|dright|off', scope: 'web', device: true },
   { key: 'button_horn', env: 'NFSU2_BUTTON_HORN', kind: 'enum', vals: 'ls|rs|off', scope: 'web', device: true },
   { key: 'button_chat', env: 'NFSU2_BUTTON_CHAT', kind: 'enum', vals: 'rs|ls|off', scope: 'web', device: true },
+  // the racers' visual crash damage, FRS Mods' Crashing Foreign Cars (runtime/damage.c).  Not in bundle.m's table
+  { key: 'crash_damage', env: 'NFSU2_DAMAGE', kind: 'bool', scope: 'web' },
 ];
 
 /** strcasecmp's and toupper's folding: ASCII letters only (String.toLowerCase would also fold the Kelvin sign to 'k') */
@@ -280,6 +282,14 @@ export const TEMPLATE = `# NFSU2 settings, read at every launch.
 # original game: a hidden race shows only when you drive near it.
 # [NFSU2_SHOW_HIDDEN_RACES]
 #show_hidden_races = off
+
+# Crash damage, as FRS Mods' Crashing Foreign Cars has it: the racers' cars
+# (yours and the AI's) dent where they are hit, scratch, lose their bumpers,
+# mirrors, hood, trunk lid and doors, and break their lights.  Only what is
+# seen: the engine, the suspension and the handling are as before, and the
+# game's own repair (a race's start, the garage) takes the damage away.
+# off = the original game.  [NFSU2_DAMAGE]
+#crash_damage = on
 
 # What the game does while this tab is hidden or another window is active:
 # "pause" freezes it and pauses its sound, like alt-tab on Windows; "run"
